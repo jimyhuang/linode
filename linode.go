@@ -89,6 +89,7 @@ type LinodeIP struct {
 	LinodeID int    `json:"LINODEID"`
 	Public   int    `json:"ISPUBLIC"`
 	IP       string `json:"IPADDRESS"`
+	RDNS     string `json:"RDNS_NAME"`
 }
 
 // IsPublic returns true if IP is public
