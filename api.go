@@ -134,10 +134,7 @@ func getJSON(u string, responses []Response, errs []error) ([]Response, []error)
 	decoder := json.NewDecoder(resp.Body)
 
 	var responseJSONs []responseJSON
-	if err = decoder.Decode(&responseJSONs); err != nil {
-		errs = append(errs, fmt.Errorf("unable to decode api JSON response"))
-		return responses, errs
-	}
+	decoder.Decode(&responseJSONs)
 
 	for _, r := range responseJSONs {
 		// Check for 'ERROR' attribute for any values, which would indicate an error
